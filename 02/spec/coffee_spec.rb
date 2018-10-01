@@ -9,12 +9,8 @@ class Coffee
 
   def add(ingredient)
     ingredients << ingredient
-    if (ingredient == :milk) 
-      @price += 0.25
-    end
-    if ingredient == :suggar
-      @price += 0.35
-    end
+    @price += 0.25 if ingredient == :milk
+    @price += 0.35 if ingredient == :suggar
   end
 end
 
