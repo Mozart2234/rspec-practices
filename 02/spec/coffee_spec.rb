@@ -1,7 +1,21 @@
+RSpec.configure do |config|
+  config.example_status_persistence_file_path = 'spec/examples.txt'
+end
+
 class Coffee
   attr_accessor :price
   def initialize
     @price = 1.00
+    @more_prices = {
+      milk: {
+        name: "Milk", 
+        price: 0.25 
+      },
+      suggar: {
+        name: "Suggar",
+        price: 0.35 
+      }
+    }
   end
   def ingredients
     @ingredients ||= []
@@ -9,8 +23,8 @@ class Coffee
 
   def add(ingredient)
     ingredients << ingredient
-    @price += 0.25 if ingredient == :milk
-    @price += 0.35 if ingredient == :suggar
+    item = @more_prices[ingredient]
+    @price += item[:price]
   end
 end
 
@@ -36,4 +50,6 @@ RSpec.describe "A cup of Coffee" do
     end
   end
 
+  it 'is light in color'
+  it 'is cooler than 200 degrees Fahrenheit'
 end
