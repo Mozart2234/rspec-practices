@@ -1,4 +1,4 @@
-Rspec.describe 'An ideal Sandwich' do
+RSpec.describe 'An ideal Sandwich' do
   it 'is delicius' do
     sandwich = Sandwich.new('delicius', [])
     taste = sandwich.taste
